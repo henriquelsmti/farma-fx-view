@@ -4,7 +4,7 @@
 	<groupId>br.com.datarey</groupId>
 	<artifactId>farma-FX-view</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -28,7 +28,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>br.com.datarey.test.Main</mainClass>
+							<mainClass>br.com.datarey.Start</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -39,14 +39,14 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.4</version>
 				<configuration>
-				    <archive>
-                        <manifest>
-                            <mainClass>br.com.datarey.test.Main</mainClass>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                        </manifest>
-                    </archive>
-					<descriptor>${project.basedir}/src/main/assembly/assembly.xml</descriptor>
+					<archive>
+						<manifest>
+							<mainClass>br.com.datarey.Start</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
 				</configuration>
 			</plugin>
 
@@ -61,11 +61,11 @@
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>br.com.datarey</groupId>
 			<artifactId>infra-javaFX</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 
