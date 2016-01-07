@@ -7,8 +7,8 @@
             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="banco">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>br.com.datarey.model.Usuario</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/projeto" />
@@ -16,6 +16,7 @@
             <property name="javax.persistence.jdbc.password" value="1234" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <property name="hibernate.enable_lazy_load_no_trans" value="true" />
             <property name="hibernate.show_sql" value="true" />
         </properties>
     </persistence-unit>
