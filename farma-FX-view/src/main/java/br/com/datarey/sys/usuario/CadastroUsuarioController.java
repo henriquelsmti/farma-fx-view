@@ -70,11 +70,11 @@ public class CadastroUsuarioController extends BaseController{
     
     @Override
     protected void init() {
-       inicializarNavegação();
+       inicializarNavegacao();
        iniciarColunas();
     }
     
-    private void inicializarNavegação(){
+    private void inicializarNavegacao(){
         addEnterNavigator(pesquisa);
         addEnterNavigator(botaoPesquisar);
         addEnterNavigator(listagem);

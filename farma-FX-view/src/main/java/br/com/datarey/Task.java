@@ -7,6 +7,7 @@ import java.io.PrintStream;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import br.com.datarey.context.Context;
 
@@ -32,13 +33,27 @@ public class Task extends javafx.concurrent.Task<Object> {
         Context.init();
         return null;
     }
-    
+
+    @Override
+    protected void failed() {
+        Alert alert = alert = new Alert(Alert.AlertType.ERROR);
+        String msg = getException().getMessage();
+        if(getException().getCause() != null){
+            msg += "\n" + getException().getCause().getMessage();
+        }
+        alert.setHeaderText(msg);
+        alert.showAndWait();
+        Context.shutdown();
+        System.exit(0);
+
+    }
+
     @Override
     protected void succeeded() {
         super.succeeded();
         Init init = Context.getBean(Init.class);
         init.start(primaryStage);
-        //primaryStage.close();
+        primaryStage.close();
     }
     
     public void appendText(String str) {
