@@ -1,6 +1,7 @@
 package br.com.datarey;
 
 
+import com.sun.javafx.css.StyleManager;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -16,7 +17,8 @@ public class Start extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        
+        Application.setUserAgentStylesheet(null);
+        StyleManager.getInstance().addUserAgentStylesheet("/br/com/datarey/css/global.css");
         primaryStage.initStyle(StageStyle.UNDECORATED);
         Image image = new Image(Start.class.getResourceAsStream("logo-datarey.png"));
         ImageView imageView = new ImageView(image);

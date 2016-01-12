@@ -1,12 +1,12 @@
 package br.com.datarey.sys.usuario;
 
-import br.com.datarey.frame.base.BaseWindow;
+import br.com.datarey.frame.crud.BaseCRUD;
 
 
-public class CadastroUsuario extends BaseWindow {
+public class CadastroUsuario extends BaseCRUD<CadastroUsuarioController> {
 
     public CadastroUsuario() {
-        super("cadastroUsuario.fxml", 800, 600, "Cadastro Usuario");
+        super(UsuarioForm.class);
     }
 
 }

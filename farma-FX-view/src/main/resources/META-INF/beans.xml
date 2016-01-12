@@ -5,5 +5,7 @@
 
 	<interceptors>
 		<class>br.com.datarey.controller.BaseControllerInterceptor</class>
+		<class>br.com.datarey.transactional.TransactionalInterceptor</class>
 	</interceptors>
+
 </beans>
