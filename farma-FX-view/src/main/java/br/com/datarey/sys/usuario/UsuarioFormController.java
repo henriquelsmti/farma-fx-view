@@ -36,9 +36,11 @@ public class UsuarioFormController extends BaseFormController<Usuario, UsuarioSe
 
     @Override
     public void salvarActionListener() {
-        if(!senha.getText().equals(confimacaoSenha.getText())){
-            messageUtil.showMessage("As senhas não conferem", MessageType.ALERT);
-            return;
+        if(senha.getText() != null){
+            if(!senha.getText().equals(confimacaoSenha.getText())){
+                messageUtil.showMessage("As senhas não conferem", MessageType.ALERT);
+                return;
+            }
         }
         super.salvarActionListener();
     }

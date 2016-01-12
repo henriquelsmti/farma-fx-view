@@ -9,6 +9,7 @@ public class UsuarioForm extends BaseForm<Usuario> {
 
     public UsuarioForm() {
         super("usuarioForm.fxml");
+        setWidth(500);
+        setHeight(300);
     }
-
 }
