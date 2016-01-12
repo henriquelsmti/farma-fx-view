@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.datarey</groupId>
 	<artifactId>farma-FX-view</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<build>
 		<plugins>
@@ -65,7 +65,7 @@
 		<dependency>
 			<groupId>br.com.datarey</groupId>
 			<artifactId>infra-javaFX</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.0.4-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 

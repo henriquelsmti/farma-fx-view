@@ -1,7 +1,6 @@
 package br.com.datarey.sys.usuario;
 
 import br.com.datarey.databind.DataBind;
-import br.com.datarey.frame.crud.BaseCRUDController;
 import br.com.datarey.frame.crud.BaseFormController;
 import br.com.datarey.model.Usuario;
 import br.com.datarey.service.UsuarioService;
