@@ -60,7 +60,7 @@ public class Task extends javafx.concurrent.Task<Object> {
         if(str.equals(System.lineSeparator()) || str.equals("\n")){
             Platform.runLater(() -> msg.set(builder.toString()));
             try {
-                Thread.sleep(10);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

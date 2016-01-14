@@ -1,6 +1,7 @@
 package br.com.datarey;
 
 
+import br.com.datarey.sys.util.ExceptionMessageUtil;
 import com.sun.javafx.css.StyleManager;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -13,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.validation.ConstraintViolationException;
 import java.lang.reflect.InvocationTargetException;
 
 public class Start extends Application {
@@ -23,7 +25,7 @@ public class Start extends Application {
     public void start(Stage primaryStage) throws Exception {
         Application.setUserAgentStylesheet(null);
         StyleManager.getInstance().addUserAgentStylesheet("/br/com/datarey/css/global.css");
-        Thread.setDefaultUncaughtExceptionHandler(Start::showError);
+        Thread.setDefaultUncaughtExceptionHandler(ExceptionMessageUtil::showError);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         Image image = new Image(Start.class.getResourceAsStream("logo-datarey.png"));
         ImageView imageView = new ImageView(image);
@@ -41,27 +43,7 @@ public class Start extends Application {
     }
 
 
-    private static void showError(Thread t, Throwable e) {
-        if (Platform.isFxApplicationThread()) {
-            Platform.runLater(() -> {
-                Alert alert = null;
-                alert = new Alert(Alert.AlertType.ERROR);
-                String msg = e.getMessage();
-                if(e.getCause() != null && e.getCause() instanceof InvocationTargetException){
-                        msg = msg + "\n" + ((InvocationTargetException)e.getCause()).getTargetException().getMessage();
-                }else {
-                    if (e.getCause() != null && e.getCause().getMessage() != null && !e.getCause().getMessage().equals(msg)) {
-                        msg = msg + "\n" + e.getCause();
-                    }
-                }
-                alert.setHeaderText(msg == null ? "null" : msg);
-                alert.show();
-                e.printStackTrace();
-            });
-        }
-    }
-    
-   
+
 
     public static void main(String[] args) {
         
