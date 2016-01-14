@@ -1,7 +1,9 @@
 package br.com.datarey.sys.util;
 
+import br.com.datarey.exception.ModelException;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
+import org.apache.log4j.Logger;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -12,6 +14,8 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class ExceptionMessageUtil {
 
+    private static final Logger LOGGER = Logger.getLogger(ExceptionMessageUtil.class);
+
     public static void showError(Thread t, Throwable e) {
         if (Platform.isFxApplicationThread()) {
             Platform.runLater(() -> {
@@ -20,7 +24,9 @@ public class ExceptionMessageUtil {
                 String msg = obterMenssagem(e);
                 alert.setHeaderText(msg);
                 alert.show();
-                e.printStackTrace();
+                if(!isModelException(e) && procurarConstraintViolationException(e) == null){
+                    LOGGER.trace(e);
+                }
             });
         }
     }
@@ -58,6 +64,24 @@ public class ExceptionMessageUtil {
         }
 
         return null;
+    }
+
+    private static boolean isModelException(Throwable e){
+
+        while (e != null){
+
+            if(e instanceof ModelException){
+                return true;
+            }else if(e instanceof InvocationTargetException){
+                return isModelException(((InvocationTargetException)e).getTargetException());
+            }else if(e.getCause() instanceof ModelException){
+                return true;
+            }else {
+                e = e.getCause();
+            }
+        }
+
+        return false;
     }
 
 
