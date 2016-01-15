@@ -8,7 +8,7 @@ import br.com.datarey.model.Usuario;
 public class UsuarioForm extends BaseForm<Usuario> {
 
     public UsuarioForm() {
-        super("usuarioForm.fxml");
+        super(UsuarioForm.class.getResource("usuarioForm.fxml"));
         setWidth(500);
         setHeight(300);
     }

@@ -11,13 +11,13 @@ import br.com.datarey.frame.base.BaseWindow;
 public class Menu extends BaseWindow {
 
     public Menu() {
-        super("menu.fxml", 1024, 700, "Farma FX");
+        super(Menu.class.getResource("menu.fxml"), 1024, 700, "Farma FX");
     }
     
     @Override
     @PostConstruct
-    protected void init(){
-        super.init();
+    protected void postConstruct(){
+        super.postConstruct();
         super.stage.setOnCloseRequest(event -> {
             Context.shutdown();
         });
