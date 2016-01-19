@@ -5,6 +5,8 @@ import java.util.Map;
 
 import br.com.datarey.context.Context;
 import br.com.datarey.controller.BaseController;
+import br.com.datarey.est.produto.CadastroProduto;
+import br.com.datarey.fis.ncm.CadastroNCM;
 import br.com.datarey.frame.base.BaseWindow;
 import br.com.datarey.sys.usuario.CadastroUsuario;
 import javafx.fxml.FXML;
@@ -16,7 +18,8 @@ public class MenuController extends BaseController{
     
     @FXML
     private MenuBar menuBar;
-    
+
+    @FXML
     public void abrirCadastroUsuario(){
         BaseWindow cadastroUsuario = janelas.get(CadastroUsuario.class);
         if(cadastroUsuario == null){
@@ -28,5 +31,33 @@ public class MenuController extends BaseController{
         }
         cadastroUsuario.show();
         
+    }
+
+    @FXML
+    public void abrirCadastroNCM(){
+        BaseWindow cadastroNCM = janelas.get(CadastroNCM.class);
+        if(cadastroNCM == null){
+            cadastroNCM = Context.getBean(CadastroNCM.class);
+            cadastroNCM.setOnCloseRequest(event ->{
+                janelas.remove(CadastroNCM.class);
+            });
+            janelas.put(CadastroNCM.class, cadastroNCM);
+        }
+        cadastroNCM.show();
+
+    }
+
+    @FXML
+    public void abrirCadastroProduto(){
+        BaseWindow cadastroProduto = janelas.get(CadastroProduto.class);
+        if(cadastroProduto == null){
+            cadastroProduto = Context.getBean(CadastroProduto.class);
+            cadastroProduto.setOnCloseRequest(event ->{
+                janelas.remove(CadastroProduto.class);
+            });
+            janelas.put(CadastroProduto.class, cadastroProduto);
+        }
+        cadastroProduto.show();
+
     }
 }

@@ -8,6 +8,8 @@
     <persistence-unit name="banco">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>br.com.datarey.model.Usuario</class>
+        <class>br.com.datarey.model.fis.NCM</class>
+        <class>br.com.datarey.model.est.Produto</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

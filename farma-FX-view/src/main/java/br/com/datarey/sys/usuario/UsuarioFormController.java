@@ -31,14 +31,11 @@ public class UsuarioFormController extends BaseFormController<Usuario, UsuarioSe
     @FXML
     private PasswordField confimacaoSenha;
 
-    @Inject
-    private MessageUtil messageUtil;
-
     @Override
     public void salvarActionListener() {
         if(senha.getText() != null){
             if(!senha.getText().equals(confimacaoSenha.getText())){
-                messageUtil.showMessage("As senhas não conferem", MessageType.ALERT);
+               getMessageUtil().showMessage("As senhas não conferem", MessageType.ALERT);
                 return;
             }
         }

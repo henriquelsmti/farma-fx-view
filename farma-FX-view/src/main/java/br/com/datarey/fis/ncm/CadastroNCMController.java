@@ -1,26 +1,23 @@
-package br.com.datarey.est.produto;
+package br.com.datarey.fis.ncm;
 
 import br.com.datarey.component.input.TextField;
-import br.com.datarey.fis.ncm.NCMInput;
-import br.com.datarey.fis.ncm.NCMSearchPopUp;
 import br.com.datarey.frame.crud.BaseCRUDController;
 import br.com.datarey.model.Usuario;
 import br.com.datarey.model.est.Produto;
-import br.com.datarey.service.UsuarioService;
+import br.com.datarey.model.fis.NCM;
 import br.com.datarey.service.est.ProdutoService;
+import br.com.datarey.service.fis.NCMService;
 import br.com.datarey.table.ColumnSearch;
-import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Pos;
 
-import javax.inject.Inject;
+public class CadastroNCMController extends BaseCRUDController<NCM, NCMService> {
 
-public class CadastroProdutoController extends BaseCRUDController<Produto, ProdutoService> {
 
     @Override
     protected void init() {
         super.init();
-        ColumnSearch<Produto> columnSearch = new ColumnSearch<>();
+        ColumnSearch<NCM> columnSearch = new ColumnSearch<>();
         columnSearch.setTitle("Codigo");
         columnSearch.setField("codigo");
         columnSearch.setVisible(true);
@@ -38,18 +35,5 @@ public class CadastroProdutoController extends BaseCRUDController<Produto, Produ
         columnSearch.setCellData((data) -> {
            return new SimpleStringProperty(data.getValue().getNome());});
         addColumnSearch(columnSearch);
-
-
-        columnSearch = new ColumnSearch<>();
-        columnSearch.setTitle("NCM");
-        columnSearch.setField("ncm");
-        columnSearch.setVisible(true);
-        columnSearch.setAlignment(Pos.BASELINE_RIGHT);
-        columnSearch.setGraphic(new NCMInput());
-        columnSearch.setCellData((data) -> {
-            return new SimpleLongProperty(data.getValue().getNcm().getCodigo());});
-        addColumnSearch(columnSearch);
-
-
     }
 }

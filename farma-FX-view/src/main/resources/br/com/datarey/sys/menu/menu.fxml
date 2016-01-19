@@ -16,15 +16,33 @@
    <top>
       <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Sistema">
+          <Menu mnemonicParsing="false" text="Estoque">
             <items>
                   <Menu mnemonicParsing="false" text="Cadastro">
                     <items>
-                    <MenuItem mnemonicParsing="false" onAction="#abrirCadastroUsuario" text="Usuario " />
+                    <MenuItem mnemonicParsing="false" onAction="#abrirCadastroProduto" text="Produto" />
                     </items>
                   </Menu>
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Fiscal">
+               <items>
+                  <Menu mnemonicParsing="false" text="Cadastro">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#abrirCadastroNCM" text="NCM" />
+                     </items>
+                  </Menu>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Sistema">
+               <items>
+                  <Menu mnemonicParsing="false" text="Cadastro">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#abrirCadastroUsuario" text="Usuario " />
+                     </items>
+                  </Menu>
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

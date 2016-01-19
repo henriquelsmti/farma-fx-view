@@ -2,20 +2,20 @@ package br.com.datarey.est.produto;
 
 import br.com.datarey.component.input.LongInput;
 import br.com.datarey.databind.DataBind;
+import br.com.datarey.fis.ncm.NCMInput;
 import br.com.datarey.frame.crud.BaseFormController;
 import br.com.datarey.model.Usuario;
-import br.com.datarey.service.UsuarioService;
-import br.com.datarey.util.MessageType;
+import br.com.datarey.model.est.Produto;
+import br.com.datarey.service.est.ProdutoService;
 import br.com.datarey.util.MessageUtil;
 import javafx.fxml.FXML;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import javax.inject.Inject;
 
-public class ProdutoFormController extends BaseFormController<Usuario, UsuarioService> {
+public class ProdutoFormController extends BaseFormController<Produto, ProdutoService> {
 
-    private Usuario usuario;
+    private Produto produto;
 
     @FXML
     @DataBind(mappedBy = "produto.codigo")
@@ -25,10 +25,11 @@ public class ProdutoFormController extends BaseFormController<Usuario, UsuarioSe
     @DataBind(mappedBy = "produto.nome")
     private TextField nome;
 
+    @FXML
+    @DataBind(mappedBy = "produto.ncm")
+    private NCMInput ncm;
 
 
-    @Inject
-    private MessageUtil messageUtil;
 
     @Override
     public void salvarActionListener() {
@@ -37,12 +38,12 @@ public class ProdutoFormController extends BaseFormController<Usuario, UsuarioSe
     }
 
     @Override
-    public Usuario getEntity() {
-        return usuario;
+    public Produto getEntity() {
+        return produto ;
     }
 
     @Override
-    public void setEntity(Usuario entity) {
-        usuario = entity;
+    public void setEntity(Produto entity) {
+        produto  = entity;
     }
 }

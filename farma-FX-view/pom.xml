@@ -58,14 +58,14 @@
 		<dependency>
 			<groupId>br.com.datarey</groupId>
 			<artifactId>farma-FX-app</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>br.com.datarey</groupId>
 			<artifactId>infra-javaFX</artifactId>
-			<version>0.0.5-SNAPSHOT</version>
+			<version>0.0.6-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 
