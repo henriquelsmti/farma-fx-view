@@ -1,18 +1,22 @@
 package br.com.datarey.fis.ncm;
 
+import br.com.datarey.app.BaseReport;
+import br.com.datarey.app.fis.NCMReport;
+import br.com.datarey.app.fis.NCMReportImpl;
 import br.com.datarey.component.input.TextField;
 import br.com.datarey.frame.crud.BaseCRUDController;
-import br.com.datarey.model.Usuario;
-import br.com.datarey.model.est.Produto;
 import br.com.datarey.model.fis.NCM;
-import br.com.datarey.service.est.ProdutoService;
 import br.com.datarey.service.fis.NCMService;
 import br.com.datarey.table.ColumnSearch;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Pos;
 
+import javax.inject.Inject;
+
 public class CadastroNCMController extends BaseCRUDController<NCM, NCMService> {
 
+    @Inject
+    private NCMReport ncmReport;
 
     @Override
     protected void init() {
@@ -35,5 +39,10 @@ public class CadastroNCMController extends BaseCRUDController<NCM, NCMService> {
         columnSearch.setCellData((data) -> {
            return new SimpleStringProperty(data.getValue().getNome());});
         addColumnSearch(columnSearch);
+    }
+
+    @Override
+    protected BaseReport getReport() {
+        return ncmReport;
     }
 }

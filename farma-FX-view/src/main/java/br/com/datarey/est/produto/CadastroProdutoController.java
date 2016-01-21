@@ -1,5 +1,6 @@
 package br.com.datarey.est.produto;
 
+import br.com.datarey.app.BaseReport;
 import br.com.datarey.component.input.TextField;
 import br.com.datarey.fis.ncm.NCMInput;
 import br.com.datarey.fis.ncm.NCMSearchPopUp;
@@ -51,5 +52,10 @@ public class CadastroProdutoController extends BaseCRUDController<Produto, Produ
         addColumnSearch(columnSearch);
 
 
+    }
+
+    @Override
+    protected BaseReport getReport() {
+        return null;
     }
 }

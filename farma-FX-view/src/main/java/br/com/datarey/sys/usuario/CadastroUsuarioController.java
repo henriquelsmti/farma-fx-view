@@ -1,5 +1,6 @@
 package br.com.datarey.sys.usuario;
 
+import br.com.datarey.app.BaseReport;
 import br.com.datarey.component.input.TextField;
 import br.com.datarey.frame.crud.BaseCRUDController;
 import br.com.datarey.model.Usuario;
@@ -41,5 +42,10 @@ public class CadastroUsuarioController extends BaseCRUDController<Usuario, Usuar
         columnSearch.setCellData((data) -> {
             return new SimpleStringProperty(data.getValue().getNome());});
         addColumnSearch(columnSearch);
+    }
+
+    @Override
+    protected BaseReport getReport() {
+        return null;
     }
 }
