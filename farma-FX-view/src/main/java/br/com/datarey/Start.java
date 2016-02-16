@@ -2,6 +2,7 @@ package br.com.datarey;
 
 
 import br.com.datarey.sys.util.ExceptionMessageUtil;
+import br.com.datarey.util.ApplicationUtil;
 import com.sun.javafx.css.StyleManager;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -28,10 +29,9 @@ public class Start extends Application {
         Scene scene = new Scene(box);
         primaryStage.setScene(scene);
         primaryStage.show();
-        
         Task task = new Task(primaryStage);
         this.outLabel.textProperty().bindBidirectional(task.getMsg());
-        
+        ApplicationUtil.setApplication(this);
         new Thread(task).start();
     }
 
